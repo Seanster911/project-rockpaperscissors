@@ -11,18 +11,20 @@
 
         function getComputerChoice(choice) {
             if (rdnNumber === 1 || rdnNumber == 4 || rdnNumber == 7) {
-                console.log("Rock");
+                return "Rock"
             } else if (rdnNumber === 8 || rdnNumber == 5 || rdnNumber == 8) {
-                console.log("Paper");
+                return "Paper"
             } else {
-                console.log("Scissors");
+                return "Scissors"
             }
         };
 
         let rdnNumber = Math.floor(Math.random() * 10);
-        console.log(rdnNumber);
+        
 
-        getComputerChoice();
+        const computerChoice = getComputerChoice();    
+
+        console.log(computerChoice);
     </script>
 </body>
 </html>
