@@ -11,20 +11,31 @@
 
         function getComputerChoice(choice) {
             if (rdnNumber === 1 || rdnNumber == 4 || rdnNumber == 7) {
-                return "Rock"
+                return "Rock";
             } else if (rdnNumber === 8 || rdnNumber == 5 || rdnNumber == 8) {
-                return "Paper"
+                return "Paper";
             } else {
-                return "Scissors"
+                return "Scissors";
+            }
+        };
+
+        function playRound(playerChoice, computerChoice) {
+            if (computerChoice == "Rock" && playerChoice.toLowerCase() == "rock") {
+                return "It's a draw!"
+            } else if (computerChoice == "Paper" && playerChoice.toLowerCase() == "rock") {
+                return "You lose Paper beats Rock!";
+            } else {
+                return "You win Rock beats Scissors!"
             }
         };
 
         let rdnNumber = Math.floor(Math.random() * 10);
         
 
-        const computerChoice = getComputerChoice();    
+        const computerChoice = getComputerChoice(); 
+        const playerChoice = "Rock";   
 
-        console.log(computerChoice);
+        console.log(playRound(playerChoice, computerChoice));
     </script>
 </body>
 </html>
