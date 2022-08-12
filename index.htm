@@ -9,7 +9,7 @@
 <body>
     <script>
 
-        function getComputerChoice(choice) {
+        function getComputerChoice() {
             if (rdnNumber === 1 || rdnNumber == 4 || rdnNumber == 7) {
                 return "Rock";
             } else if (rdnNumber === 8 || rdnNumber == 5 || rdnNumber == 8) {
@@ -20,22 +20,37 @@
         };
 
         function playRound(playerChoice, computerChoice) {
-            if (computerChoice == "Rock" && playerChoice.toLowerCase() == "rock") {
+            if (computerChoice.toLowerCase() == playerChoice.toLowerCase()) {
                 return "It's a draw!"
             } else if (computerChoice == "Paper" && playerChoice.toLowerCase() == "rock") {
                 return "You lose Paper beats Rock!";
-            } else {
-                return "You win Rock beats Scissors!"
-            }
+            } else if (computerChoice == "Paper" && playerChoice.toLowerCase() == "scissors") {
+                return "You win Scissors beats Paper!";
+            } else if (computerChoice == "Scissors" && playerChoice.toLowerCase() == "paper") {
+                return "You lose Scissors beats Paper !";
+            } else if (computerChoice == "Scissors" && playerChoice.toLowerCase() == "rock") {
+                return "You win Rock beats Scissors!";
+            } else if (computerChoice == "Rock" && playerChoice.toLowerCase() == "paper") {
+                return "You win Paper beats Rock!";
+            } else if (computerChoice == "Rock" && playerChoice.toLowerCase() == "scissors") {
+                return "You lose Rock beats Scissors!";
+            } 
         };
 
         let rdnNumber = Math.floor(Math.random() * 10);
         
 
-        const computerChoice = getComputerChoice(); 
-        const playerChoice = "Rock";   
+        let computerChoice = getComputerChoice(); 
+        let playerChoice = "Rock";   
 
-        console.log(playRound(playerChoice, computerChoice));
+        for (let i = 0; i < 5; i++) {
+            playerChoice = window.prompt("Enter Rock, Paper or Scissors:");
+
+            rdnNumber = Math.floor(Math.random() * 10);
+            computerChoice = getComputerChoice();
+            console.log(computerChoice);
+            console.log(playRound(playerChoice, computerChoice));
+        }
     </script>
 </body>
 </html>
