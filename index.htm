@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+
+        function getComputerChoice(choice) {
+            if (rdnNumber === 1 || rdnNumber == 4 || rdnNumber == 7) {
+                console.log("Rock");
+            } else if (rdnNumber === 8 || rdnNumber == 5 || rdnNumber == 8) {
+                console.log("Paper");
+            } else {
+                console.log("Scissors");
+            }
+        };
+
+        let rdnNumber = Math.floor(Math.random() * 10);
+        console.log(rdnNumber);
+
+        getComputerChoice();
+    </script>
+</body>
+</html>
