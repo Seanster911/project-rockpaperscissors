@@ -7,6 +7,12 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+
+    <button type="button" data-key="Rock" id="Rock">Rock</button>
+    <button type="button" data-key="Paper" id="Paper">Paper</button>
+    <button type="button" date-key="Scissors" id="Scissors">Scissors</button>
+
+
     <script>
 
         function getComputerChoice() {
@@ -19,38 +25,48 @@
             }
         };
 
-        function playRound(playerChoice, computerChoice) {
-            if (computerChoice.toLowerCase() == playerChoice.toLowerCase()) {
-                return "It's a draw!"
-            } else if (computerChoice == "Paper" && playerChoice.toLowerCase() == "rock") {
-                return "You lose Paper beats Rock!";
-            } else if (computerChoice == "Paper" && playerChoice.toLowerCase() == "scissors") {
-                return "You win Scissors beats Paper!";
-            } else if (computerChoice == "Scissors" && playerChoice.toLowerCase() == "paper") {
-                return "You lose Scissors beats Paper !";
-            } else if (computerChoice == "Scissors" && playerChoice.toLowerCase() == "rock") {
-                return "You win Rock beats Scissors!";
-            } else if (computerChoice == "Rock" && playerChoice.toLowerCase() == "paper") {
-                return "You win Paper beats Rock!";
-            } else if (computerChoice == "Rock" && playerChoice.toLowerCase() == "scissors") {
-                return "You lose Rock beats Scissors!";
+        function playRound(e, playerChoice, computerChoice) { 
+
+            playerChoice = e.srcElement.id;
+            console.log(playerChoice);
+            
+            rdnNumber = Math.floor(Math.random() * 10);
+            computerChoice = getComputerChoice();
+
+
+            if (computerChoice == playerChoice) {
+                console.log("It's a draw!");
+            } else if (computerChoice == "Paper" && playerChoice == "Rock") {
+                console.log("You lose Paper beats Rock!");
+            } else if (computerChoice == "Paper" && playerChoice == "Scissors") {
+                console.log("You win Scissors beats Paper!");
+            } else if (computerChoice == "Scissors" && playerChoice == "Paper") {
+                console.log("You lose Scissors beats Paper!");
+            } else if (computerChoice == "Scissors" && playerChoice == "Rock") {
+                console.log("You win Rock beats Scissors!");
+            } else if (computerChoice == "Rock" && playerChoice == "Paper") {
+                console.log("You win Paper beats Rock!");
+            } else if (computerChoice == "Rock" && playerChoice == "Scissors") {
+                console.log("You lose Rock beats Scissors!");
             } 
         };
+
+
 
         let rdnNumber = Math.floor(Math.random() * 10);
         
 
-        let computerChoice = getComputerChoice(); 
-        let playerChoice = "Rock";   
+        let computerChoice = getComputerChoice();    
 
-        for (let i = 0; i < 5; i++) {
-            playerChoice = window.prompt("Enter Rock, Paper or Scissors:");
+        const choiceRock = document.getElementById('Rock');
+        const choicePaper = document.getElementById('Paper');
+        const choiceScissors = document.getElementById('Scissors');
 
-            rdnNumber = Math.floor(Math.random() * 10);
-            computerChoice = getComputerChoice();
-            console.log(computerChoice);
-            console.log(playRound(playerChoice, computerChoice));
-        }
-    </script>
+        choiceRock.addEventListener('click', playRound);
+        choicePaper.addEventListener('click', playRound);
+        choiceScissors.addEventListener('click', playRound);
+
+
+        </script>
 </body>
 </html>
