@@ -66,7 +66,19 @@
                 console.log("You lose Rock beats Scissors!");
                 container.textContent = "You lose Rock beats Paper!";
                 computerScore += 1;
-            } 
+            };
+
+            if (playerScore === 5) {
+                container.textContent = "You've won 5 times! You win :)";
+                playerScore = 0;
+                computerScore = 0;
+            } else if (computerScore === 5) {
+                container.textContent = "The computer won 5 times! You lose :(";
+                playerScore = 0;
+                computerScore = 0;
+            } else {
+                return;
+            };
         };
 
 
