@@ -12,7 +12,9 @@
     <button type="button" data-key="Paper" id="Paper">Paper</button>
     <button type="button" date-key="Scissors" id="Scissors">Scissors</button>
 
-
+    <div id="results-container">
+        
+    </div>
     <script>
 
         function getComputerChoice() {
@@ -25,29 +27,45 @@
             }
         };
 
+        let playerScore = 0;
+        let computerScore = 0;
+
         function playRound(e, playerChoice, computerChoice) { 
 
             playerChoice = e.srcElement.id;
-            console.log(playerChoice);
             
+            const container = document.getElementById("results-container");
+
             rdnNumber = Math.floor(Math.random() * 10);
             computerChoice = getComputerChoice();
 
-
             if (computerChoice == playerChoice) {
                 console.log("It's a draw!");
+                container.textContent = "It's a draw!";
             } else if (computerChoice == "Paper" && playerChoice == "Rock") {
                 console.log("You lose Paper beats Rock!");
+                container.textContent = "You lose Paper beats Rock!";
+                computerScore += 1;
             } else if (computerChoice == "Paper" && playerChoice == "Scissors") {
                 console.log("You win Scissors beats Paper!");
+                container.textContent = "You win Scissors beats Paper!";
+                playerScore += 1;
             } else if (computerChoice == "Scissors" && playerChoice == "Paper") {
                 console.log("You lose Scissors beats Paper!");
+                container.textContent = "You lose Scissors beats Paper!";
+                computerScore += 1;
             } else if (computerChoice == "Scissors" && playerChoice == "Rock") {
                 console.log("You win Rock beats Scissors!");
+                container.textContent = "You win Rock beats Scissors!";
+                playerScore += 1;
             } else if (computerChoice == "Rock" && playerChoice == "Paper") {
                 console.log("You win Paper beats Rock!");
+                container.textContent = "You win Paper beats Rock!";
+                playerScore += 1;
             } else if (computerChoice == "Rock" && playerChoice == "Scissors") {
                 console.log("You lose Rock beats Scissors!");
+                container.textContent = "You lose Rock beats Paper!";
+                computerScore += 1;
             } 
         };
 
